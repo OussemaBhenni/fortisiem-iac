@@ -1,0 +1,17 @@
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfvars
+crash.log
+override.tf
+override.tf.json
+
+# Ansible
+*.retry
+ansible/inventory/host_vars/*secret*
+*.vault
+
+# Divers
+.DS_Store
+*.log

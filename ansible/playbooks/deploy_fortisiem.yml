@@ -1,0 +1,20 @@
+---
+# Playbook de déploiement / configuration FortiSIEM
+# Étape 0 : vérifier la connectivité avant toute action (bonne pratique RHCE)
+
+- name: Vérifier la connectivité avant déploiement
+  hosts: fortisiem
+  gather_facts: true
+  tasks:
+    - name: Ping
+      ansible.builtin.ping:
+
+# - name: Configurer FortiSIEM via l'API REST
+#   hosts: fortisiem
+#   tasks:
+#     - name: Vérifier l'état de l'API FortiSIEM
+#       ansible.builtin.uri:
+#         url: "https://localhost:443/api/health"
+#         method: GET
+#         validate_certs: false
+#       tags: [configure]

@@ -1,0 +1,16 @@
+# Squelette pour test rapide en local — sera remplacé par Terraform
+# une fois le module terraform/modules/fortisiem complété.
+#
+# version Docker Compose minimale, juste pour valider que le réseau
+# et les volumes fonctionnent avant d'introduire FortiSIEM.
+
+services:
+  network-check:
+    image: alpine:latest
+    command: ["sleep", "infinity"]
+    networks:
+      - fortisiem-net
+
+networks:
+  fortisiem-net:
+    driver: bridge

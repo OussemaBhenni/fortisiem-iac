@@ -1,0 +1,4 @@
+# Copier ce fichier en terraform.tfvars (gitignored) et compléter
+# une fois les infos récupérées auprès du tuteur.
+
+# fortisiem_image = "registre-teamwill/fortisiem:x.y.z"

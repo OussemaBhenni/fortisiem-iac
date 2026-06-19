@@ -1,0 +1,8 @@
+---
+# Configuration des collecteurs FortiSIEM (Syslog/CEF)
+# À compléter une fois l'accès FortiSIEM confirmé.
+
+- name: Configurer les collecteurs
+  hosts: fortisiem
+  tasks: []
+  tags: [configure]

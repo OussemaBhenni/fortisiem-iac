@@ -1,0 +1,8 @@
+---
+# Application des règles de corrélation FortiSIEM
+# À compléter en phase P4 (règles de corrélation + tests Kali).
+
+- name: Appliquer les règles de corrélation
+  hosts: fortisiem
+  tasks: []
+  tags: [rules]
