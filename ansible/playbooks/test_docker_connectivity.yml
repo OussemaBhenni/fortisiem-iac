@@ -1,0 +1,19 @@
+---
+# Validation de la chaîne Ansible -> Docker, sans dépendre de FortiSIEM.
+# Cible le conteneur Kali créé par Terraform.
+
+- name: Vérifier qu'Ansible peut piloter le conteneur Kali
+  hosts: containers
+  gather_facts: true
+  tasks:
+    - name: Ping (nécessite Python dans le conteneur)
+      ansible.builtin.ping:
+
+    - name: Vérifier que nmap est bien présent dans l'image
+      ansible.builtin.command: nmap --version
+      register: nmap_check
+      changed_when: false
+
+    - name: Afficher la version de nmap détectée
+      ansible.builtin.debug:
+        var: nmap_check.stdout_lines

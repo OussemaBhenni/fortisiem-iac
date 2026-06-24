@@ -30,3 +30,9 @@ module "fortisiem" {
   # TODO : compléter une fois l'image/licence FortiSIEM récupérée auprès du tuteur
   # fortisiem_image = "..."
 }
+
+module "kali" {
+  source = "./modules/kali"
+
+  network_name = module.network.network_name
+}

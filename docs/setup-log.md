@@ -49,3 +49,10 @@ Module `network` validé via `terraform apply` :
 - [ ] Poursuivre la lecture de la doc FortiSIEM (ports, architecture Supervisor/Worker/Collector)
 - [ ] Récupérer la licence/l'image FortiSIEM auprès du tuteur
 - [ ] Compléter le module `fortisiem` et les playbooks Ansible une fois l'accès obtenu
+
+## Jalon — Chaîne Terraform → Docker → Ansible validée
+
+Playbook `test_docker_connectivity.yml` exécuté avec succès sur le conteneur Kali (image personnalisée avec nmap, hydra, python3) :
+`ok=4 changed=0 unreachable=0 failed=0`
+
+Preuve que la chaîne IaC complète fonctionne mécaniquement, indépendamment de FortiSIEM.

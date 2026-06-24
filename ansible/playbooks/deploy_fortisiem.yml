@@ -1,6 +1,6 @@
 ---
 # Playbook de déploiement / configuration FortiSIEM
-# Étape 0 : vérifier la connectivité avant toute action (bonne pratique RHCE)
+# Étape 0 : vérifier la connectivité avant toute action
 
 - name: Vérifier la connectivité avant déploiement
   hosts: fortisiem
@@ -9,12 +9,18 @@
     - name: Ping
       ansible.builtin.ping:
 
-# - name: Configurer FortiSIEM via l'API REST
-#   hosts: fortisiem
-#   tasks:
-#     - name: Vérifier l'état de l'API FortiSIEM
-#       ansible.builtin.uri:
-#         url: "https://localhost:443/api/health"
-#         method: GET
-#         validate_certs: false
-#       tags: [configure]
+- name: Vérifier l'état de l'API FortiSIEM
+  hosts: fortisiem
+  vars_files:
+    - ../inventory/group_vars/all/vault.yml
+  tasks:
+    - name: Interroger la CMDB via l'API REST
+      ansible.builtin.uri:
+        url: "https://{{ fortisiem_supervisor_ip }}/phoenix/rest/config/Domain"
+        method: GET
+        user: "{{ fortisiem_admin_user }}"
+        password: "{{ fortisiem_admin_password }}"
+        force_basic_auth: true
+        validate_certs: false
+      register: api_check
+      tags: [configure]
